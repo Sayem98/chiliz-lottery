@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { useAccount } from "wagmi";
 import InputBox from "./InputBox";
 import Spinner from "./Spinner";
 import useLottary from "../hooks/useLottary";

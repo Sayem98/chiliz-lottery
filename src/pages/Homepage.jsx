@@ -37,10 +37,6 @@ function Homepage() {
     const fetchData = async () => {
       const web3 = new Web3(window.ethereum);
       const chain_id = await web3.eth.getChainId();
-      if (chain_id !== 137 && chain_id !== 11155111) {
-        //("Wrong chain");
-        return;
-      }
 
       const data = await getData();
 

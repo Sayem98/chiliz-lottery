@@ -22,6 +22,14 @@ const sepolia = {
   rpcUrl: "https://1rpc.io/sepolia",
 };
 
+const chiliz = {
+  chainId: 88888,
+  name: "Chiliz",
+  currency: "IVAR",
+  explorerUrl: "https://chiliscan.com/",
+  rpcUrl: "https://chiliz.publicnode.com/",
+};
+
 // 3. Create a metadata object
 const metadata = {
   name: "My Website",
@@ -39,7 +47,7 @@ const ethersConfig = defaultConfig({
 // 5. Create a Web3Modal instance
 createWeb3Modal({
   ethersConfig,
-  chains: [sepolia],
+  chains: [chiliz],
   projectId,
   enableAnalytics: true, // Optional - defaults to your Cloud configuration
 });

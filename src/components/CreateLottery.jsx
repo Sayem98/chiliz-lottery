@@ -16,15 +16,11 @@ function CreateLottery() {
   const { createLottery } = useLottary();
 
   const handleCreate = async () => {
-    // create lottery
-    //("Create Lottery");
-    //(startTime, endTime, chzPrice, chadzPrice, mcPrice);
-
     // convert date to epoch timestamp
     const start = startTime.getTime() / 1000;
     const end = endTime.getTime() / 1000;
     const matic = Web3.utils.toWei(chzPrice.toString(), "ether");
-    const woke = Web3.utils.toWei(chadzPrice.toString(), "kwei");
+    const woke = chadzPrice * 10000;
     const gone = Web3.utils.toWei(mcPrice.toString(), "ether");
     const lic = Web3.utils.toWei(fanfanPrice.toString(), "ether");
     const joker = Web3.utils.toWei(squadPrice.toString(), "ether");

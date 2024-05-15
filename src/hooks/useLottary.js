@@ -10,6 +10,7 @@ import {
   TOKEN_CONTRACT_ABI,
 } from "../contract/contract";
 import toast from "react-hot-toast";
+import { N } from "ethers";
 
 function useLottary() {
   const getWeb3 = async () => {
@@ -65,7 +66,7 @@ function useLottary() {
     } else if (paymentType === "chadz") {
       let approve_amount = amount * uintPrice;
       //(approve_amount);
-      approve_amount = Web3.utils.toWei(approve_amount.toString(), "ether");
+      approve_amount = Number(approve_amount) * 10000;
 
       const wokeContract = await getContract(
         web3,
@@ -339,10 +340,6 @@ function useLottary() {
     const account = accounts[0];
     const chain_id = await web3.eth.getChainId();
 
-    if (chain_id !== 137 && chain_id !== 11155111) {
-      return;
-    }
-
     const contract = await getContract(
       web3,
       LOTTERY_CONTRACT_ADDRESS,
@@ -375,8 +372,7 @@ function useLottary() {
       maticPrice = Web3.utils.fromWei(maticPrice.toString(), "ether");
 
       let wokePrice = await contract.methods.chadzPrice().call();
-      wokePrice = Web3.utils.fromWei(wokePrice.toString(), "ether");
-
+      wokePrice = Number(wokePrice) / 10000;
       let gonePrice = await contract.methods.mcPrice().call();
       gonePrice = Web3.utils.fromWei(gonePrice.toString(), "ether");
 
