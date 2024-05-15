@@ -43,7 +43,6 @@ function Homepage() {
       setData(data);
       try {
         const _maticBalance = await maticBalanceF();
-        console.log(_maticBalance);
         setMaticBalance(_maticBalance);
       } catch (e) {
         //("Matic balance error");
@@ -51,6 +50,7 @@ function Homepage() {
 
       try {
         const _wokeBalance = await wokeBalanceF();
+        console.log("Woke balance", _wokeBalance);
         setWokBalance(_wokeBalance);
       } catch (e) {
         //("Woke balance error");
@@ -160,27 +160,45 @@ function Homepage() {
           <div className="flex gap-20 md:gap-60">
             <div>
               <p>Chadz</p>
-              <p>{Number(maticBalance).toFixed(2)}</p>
+              <p>{Number(wokeBalance).toFixed(2)}</p>
             </div>
             <div>
               <p>Mc</p>
-              <p>{Number(wokeBalance).toFixed(2)}</p>
+              <p>{Number(goneBalance).toFixed(2)}</p>
             </div>
           </div>
           <div className="flex gap-20 md:gap-60">
             <div>
               <p>FanFan</p>
-              <p>{Number(goneBalance).toFixed(2)}</p>
+              <p>{Number(licBalance).toFixed(2)}</p>
             </div>
             <div>
               <p>Chsquad</p>
-              <p>{Number(licBalance).toFixed(2)}</p>
+              <p>{Number(moonBalance).toFixed(2)}</p>
             </div>
           </div>
         </div>
       </div>
 
       <SwapCard />
+
+      <div className="flex justify-center flex-col items-center mt-4 gap-4 text-center p-8">
+        <p className="text-2xl font-bold">PRIZE DISTRIBUTION</p>
+        <div className="border-2 w-full md:w-[38%] p-2">
+          <h2 className="text-2xl"> --- 1st Prize ---</h2>
+          <p className="text-green-500">40%</p>
+          <h2 className="text-2xl"> --- 2st Prize ---</h2>
+          <p className="text-green-600">16%</p>
+          <h2 className="text-2xl"> --- 3rd Prize ---</h2>
+          <p className="text-green-700">12%</p>
+          <h2 className="text-2xl"> --- 4th Prize ---</h2>
+          <p className="text-green-800">8%</p>
+          <h2 className="text-2xl"> --- 5th Prize ---</h2>
+          <p className="text-green-900">4%</p>
+          <h2 className="text-2xl"> --- Upkeep and Provider ---</h2>
+          <p className="text-green-900">Rest</p>
+        </div>
+      </div>
       <Footer />
     </div>
   );

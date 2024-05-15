@@ -53,12 +53,16 @@ function SwapCard() {
               }`}
               className="text-primary text-[12px] md:text-xl"
             >{`${address ? address : 0}`}</a>
+            <p className=" text-green-500 text-center">5% Reward</p>
             <CopyToClipboard
               text={`${window.location.href.split("?")[0]}?ref=${
                 address ? address : 0
               }`}
             >
-              <button onClick={() => setCopied(true)}>
+              <button
+                onClick={() => setCopied(true)}
+                className="border-2 w-min px-2 ml-[40%] md:ml-[44%]"
+              >
                 {copied ? "Copied" : "Copy"}
               </button>
             </CopyToClipboard>
@@ -87,7 +91,8 @@ function SwapCard() {
         </div>
 
         {/* invite link of referral winner[0] !== "0x0000000000000000000000000000000000000000"*/}
-        {winner ? (
+        {winner &&
+        winner[0] !== "0x0000000000000000000000000000000000000000" ? (
           <div className="flex justify-center flex-col items-center gap-8">
             <h1 className="text-2xl">Winners</h1>
             <div className="flex flex-col justify-center items-center gap-2 border-2 w-full p-2 shadow-sm">
@@ -113,14 +118,14 @@ function SwapCard() {
               </p>
             </div>
             <div className="flex flex-col justify-center items-center gap-2">
-              <h2 className="text-xl">Third</h2>
+              <h2 className="text-xl">Fourth</h2>
 
               <p className="text-[12px] md:text-sm">
                 {winner ? winner[3] : ""}
               </p>
             </div>
             <div className="flex flex-col justify-center items-center gap-2">
-              <h2 className="text-xl">Third</h2>
+              <h2 className="text-xl">Fifth</h2>
 
               <p className="text-[12px] md:text-sm">
                 {winner ? winner[4] : ""}

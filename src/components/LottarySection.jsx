@@ -117,7 +117,7 @@ function LottarySection({ referral }) {
       //(e);
     } finally {
       setIsLoading(false);
-      // window.location.reload();
+      window.location.reload();
     }
   };
 

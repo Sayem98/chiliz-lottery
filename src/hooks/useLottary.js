@@ -36,10 +36,6 @@ function useLottary() {
 
     console.log(paymentType);
 
-    if (chain_id !== 137 && chain_id !== 11155111) {
-      return;
-    }
-
     const contract = await getContract(
       web3,
       LOTTERY_CONTRACT_ADDRESS,
@@ -231,7 +227,7 @@ function useLottary() {
       .balanceOf(LOTTERY_CONTRACT_ADDRESS)
       .call();
     //(balance);
-    return Web3.utils.fromWei(balance.toString(), "ether");
+    return Number(balance) / 10000;
   };
 
   const goneBalanceF = async () => {
