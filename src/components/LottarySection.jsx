@@ -33,7 +33,7 @@ const options = [
     img: LLC,
   },
   {
-    name: "SQUAD",
+    name: "CHSQUAD",
     value: "squad",
     img: MOON,
   },

@@ -10,7 +10,7 @@ function SwapCard() {
   const [currentTab, setCurrentTab] = useState("lottary");
   const [referral, setReferral] = useState("");
   const [copied, setCopied] = useState(false);
-  const [winner, setWinner] = useState([]);
+  const [winner, setWinner] = useState(null);
   const [lottery, setLottery] = useState(null);
 
   const { address, chainId, isConnected } = useWeb3ModalAccount();
@@ -21,6 +21,7 @@ function SwapCard() {
       const _winners = await getWinners();
       //(_winners);
       setWinner(_winners);
+      console.log(_winners);
       const _data = await getData();
       //(_data);
       setLottery(_data);
@@ -86,191 +87,43 @@ function SwapCard() {
         </div>
 
         {/* invite link of referral winner[0] !== "0x0000000000000000000000000000000000000000"*/}
-        {false ? (
+        {winner ? (
           <div className="flex justify-center flex-col items-center gap-8">
             <h1 className="text-2xl">Winners</h1>
             <div className="flex flex-col justify-center items-center gap-2 border-2 w-full p-2 shadow-sm">
               <h2 className="text-xl">First</h2>
-              <div className="flex justify-around w-full gap-1">
-                <p>
-                  {lottery
-                    ? (Number(
-                        Web3.utils.fromWei(
-                          lottery.maticPool.toString(),
-                          "ether"
-                        )
-                      ) *
-                        40) /
-                      100
-                    : 0}{" "}
-                  Matic
-                </p>
-                <p>
-                  {lottery
-                    ? (Number(
-                        Web3.utils.fromWei(lottery.wokepool.toString(), "ether")
-                      ) *
-                        40) /
-                      100
-                    : 0}
-                  K Woke
-                </p>
-                <p>
-                  {lottery
-                    ? (Number(
-                        Web3.utils.fromWei(lottery.gonePool.toString(), "ether")
-                      ) *
-                        40) /
-                      100
-                    : 0}
-                  K Gone
-                </p>
-                <p>
-                  {lottery
-                    ? (Number(
-                        Web3.utils.fromWei(lottery.licPool.toString(), "ether")
-                      ) *
-                        40) /
-                      100
-                    : 0}
-                  K LIC
-                </p>
-                <p>
-                  {lottery
-                    ? (Number(
-                        Web3.utils.fromWei(lottery.moonPool.toString(), "ether")
-                      ) *
-                        40) /
-                      100
-                    : 0}
-                  K MOON
-                </p>
-              </div>
+
               <p className="text-[12px] md:text-sm">
-                0xF27D022654e49cEF5187fdB07e4A2c65dAfc39a8
+                {winner ? winner[0] : ""}
               </p>
             </div>
             <div className="flex flex-col justify-center items-center gap-2">
               <h2 className="text-xl">Second</h2>
-              <div className="flex justify-around w-full gap-1">
-                <p>
-                  {lottery
-                    ? (Number(
-                        Web3.utils.fromWei(
-                          lottery.maticPool.toString(),
-                          "ether"
-                        )
-                      ) *
-                        25) /
-                      100
-                    : 0}{" "}
-                  Matic
-                </p>
-                <p>
-                  {lottery
-                    ? (Number(
-                        Web3.utils.fromWei(lottery.wokepool.toString(), "ether")
-                      ) *
-                        25) /
-                      100
-                    : 0}
-                  K Woke
-                </p>
-                <p>
-                  {lottery
-                    ? (Number(
-                        Web3.utils.fromWei(lottery.gonePool.toString(), "ether")
-                      ) *
-                        25) /
-                      100
-                    : 0}
-                  K Gone
-                </p>
-                <p>
-                  {lottery
-                    ? (Number(
-                        Web3.utils.fromWei(lottery.licPool.toString(), "ether")
-                      ) *
-                        25) /
-                      100
-                    : 0}
-                  K LIC
-                </p>
-                <p>
-                  {lottery
-                    ? (Number(
-                        Web3.utils.fromWei(lottery.moonPool.toString(), "ether")
-                      ) *
-                        25) /
-                      100
-                    : 0}
-                  K MOON
-                </p>
-              </div>
+
               <p className="text-[12px] md:text-sm">
-                0xC00037fa27DC24e388f653b1d377520E960D74c4
+                {winner ? winner[1] : ""}
               </p>
             </div>
 
             <div className="flex flex-col justify-center items-center gap-2">
               <h2 className="text-xl">Third</h2>
-              <div className="flex justify-around w-full gap-1">
-                <p>
-                  {lottery
-                    ? (Number(
-                        Web3.utils.fromWei(
-                          lottery.maticPool.toString(),
-                          "ether"
-                        )
-                      ) *
-                        15) /
-                      100
-                    : 0}{" "}
-                  Matic
-                </p>
-                <p>
-                  {lottery
-                    ? (Number(
-                        Web3.utils.fromWei(lottery.wokepool.toString(), "ether")
-                      ) *
-                        15) /
-                      100
-                    : 0}
-                  K Woke
-                </p>
-                <p>
-                  {lottery
-                    ? (Number(
-                        Web3.utils.fromWei(lottery.gonePool.toString(), "ether")
-                      ) *
-                        15) /
-                      100
-                    : 0}
-                  K Gone
-                </p>
-                <p>
-                  {lottery
-                    ? (Number(
-                        Web3.utils.fromWei(lottery.licPool.toString(), "ether")
-                      ) *
-                        15) /
-                      100
-                    : 0}
-                  K LIC
-                </p>
-                <p>
-                  {lottery
-                    ? (Number(
-                        Web3.utils.fromWei(lottery.moonPool.toString(), "ether")
-                      ) *
-                        15) /
-                      100
-                    : 0}
-                  K MOON
-                </p>
-              </div>
+
               <p className="text-[12px] md:text-sm">
-                0x6cC65183F57d499e35f4a55be5A688ea3d0BffFC
+                {winner ? winner[2] : ""}
+              </p>
+            </div>
+            <div className="flex flex-col justify-center items-center gap-2">
+              <h2 className="text-xl">Third</h2>
+
+              <p className="text-[12px] md:text-sm">
+                {winner ? winner[3] : ""}
+              </p>
+            </div>
+            <div className="flex flex-col justify-center items-center gap-2">
+              <h2 className="text-xl">Third</h2>
+
+              <p className="text-[12px] md:text-sm">
+                {winner ? winner[4] : ""}
               </p>
             </div>
           </div>

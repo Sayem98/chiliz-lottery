@@ -127,7 +127,7 @@ function CreateLottery() {
           />
         </div>
         <div className="flex flex-col gap-1">
-          <label className="text-white text-center">Squad Price</label>
+          <label className="text-white text-center">Chsquad Price</label>
           <input
             type="number"
             placeholder="Gone Price"

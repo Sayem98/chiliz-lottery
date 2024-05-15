@@ -306,7 +306,7 @@ function useLottary() {
       LOTTERY_CONTRACT_ABI
     );
     const winners = await contract.methods.winners().call();
-    //(winners);
+    console.log(winners);
     return winners;
   };
 

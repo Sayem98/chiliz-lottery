@@ -173,7 +173,7 @@ function Homepage() {
               <p>{Number(goneBalance).toFixed(2)}</p>
             </div>
             <div>
-              <p>Squad</p>
+              <p>Chsquad</p>
               <p>{Number(licBalance).toFixed(2)}</p>
             </div>
           </div>
